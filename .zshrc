@@ -115,6 +115,7 @@ alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias ds="dotfiles status"
 alias da="dotfiles add"
 alias dc="dotfiles commit"
+alias dp="dotfiles push"
 
 # school aliases
 alias oduvpn="sudo openconnect --protocol=gp --user=cs_jneff001 --server=gp.cs.odu.edu"
