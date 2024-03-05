@@ -8,12 +8,12 @@
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "hyprland/window", "hyprland/mode", "hyprland/scratchpad"],
     "modules-center": ["clock"],
-    "modules-right": ["custom/media", "pulseaudio", "network", "cpu", "memory", "temperature", "battery", "battery#bat2", "tray"],
+    "modules-right": ["custom/media", "pulseaudio", "network", "cpu", "memory", "temperature", "battery", "backlight", "battery#bat2", "tray"],
 
     // Modules configuration
     "hyprland/workspaces": {
         "disable-scroll": true,
-        "all-outputs": true,
+        "all-outputs": false,
         "warp-on-scroll": false,
         "format": "{icon}",
         "format-icons": {
@@ -39,6 +39,13 @@
 
     "hyprland/mode": {
         "format": "<span style=\"italic\">{}</span>"
+    },
+
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{percent} {icon}",
+        "states": [0],
+        "format-icons": ["󰳲"]
     },
 
     "hyprland/scratchpad": {
