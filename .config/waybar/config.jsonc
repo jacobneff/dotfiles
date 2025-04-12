@@ -6,9 +6,9 @@
     "spacing": 4, // Gaps between modules (4px)
 
     // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces", "hyprland/window", "hyprland/mode", "hyprland/scratchpad"],
+    "modules-left": ["hyprland/workspaces", "hyprland/mode", "hyprland/scratchpad", "pulseaudio"],
     "modules-center": ["clock"],
-    "modules-right": ["custom/media", "pulseaudio", "network", "cpu", "memory", "temperature", "battery", "backlight", "battery#bat2", "tray"],
+    "modules-right": ["custom/media", "network", "cpu", "memory", "temperature", "battery", /*"backlight", "custom/wlsunset",*/ "battery#bat2", "tray"],
 
     // Modules configuration
     "hyprland/workspaces": {
@@ -17,23 +17,23 @@
         "warp-on-scroll": false,
         "format": "{icon}",
         "format-icons": {
-            "1": "󰲠",
-            "2": "󰲢",
-            "3": "󰲤",
-            "4": "󰲦",
-            "5": "󰲨",
-            "6": "󰲪",
-            "7": "󰲬",
-            "8": "󰲮",
-            "9": "󰲰",
-            "10": "󰿬",
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "10",
             "urgent": "",
-            "active": "",
-            "default": "",
-            "empty": ""
+            // "active": "",
+            // "default": "",
+            // "empty": ""
         },
-        "persistent_workspaces": {
-            "*": 10,
+        "persistent-workspaces": {
+            "*": 5,
         },
     },
 
@@ -43,9 +43,9 @@
 
     "backlight": {
         // "device": "acpi_video1",
-        "format": "{percent} {icon}",
+        "format": "{percent}% {icon}",
         "states": [0],
-        "format-icons": ["󰳲"]
+        "format-icons": ["󰃠"]
     },
 
     "hyprland/scratchpad": {
@@ -93,22 +93,22 @@
 
     "tray": {
         "icon-size": 18,
-        "spacing": 10
+        "spacing": 7,
     },
 
     "clock": {
         // "timezone": "America/New_York",
-        "format": "{:%I:%M %p}",
+        "format": "{:%I:%M %p  %Om/%Od/%y}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%m-%d-%Y}"
     },
 
     "cpu": {
-        "format": "{usage}% 󰍛",
+        "format": "{usage}% ",
     },
 
     "memory": {
-        "format": "{}% "
+        "format": "{}% "
     },
 
     "temperature": {
@@ -117,7 +117,7 @@
         "critical-threshold": 80,
         "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
+        "format-icons": ["", "", "", "", ""]
     },
 
     "battery": {
@@ -127,12 +127,12 @@
             "critical": 15
         },
         "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
+        "format-charging": "{capacity}% 󰂄",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", ""]
+        "format-icons": [" ", " ", " ", " "]
     },
 
     "battery#bat2": {
@@ -142,8 +142,8 @@
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": " ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-ethernet": " ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
@@ -164,7 +164,7 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", "", ""]
+            "default": [" ", " ", " "]
         },
         "on-click": "pavucontrol"
     },
@@ -180,6 +180,13 @@
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    },
+
+    "custom/wlsunset":{
+        "format": "󰈋",
+        "on-click-right": "bash ~/.config/waybar/scripts/sunONOFF",
+        "on-scroll-up": "bash ~/.config/waybar/scripts/red_dec",
+        "on-scroll-down": "bash ~/.config/waybar/scripts/red_inc",
     }
 }
 

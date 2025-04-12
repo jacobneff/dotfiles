@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:/root/.local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:/root/.local/bin:/home/neff/.cargo/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -58,7 +58,7 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
-plugins=(git 1password colored-man-pages common-aliases fzf mosh ripgrep themes z zsh-syntax-highlighting zsh-autosuggestions command-not-found)
+plugins=(git 1password colored-man-pages common-aliases fzf mosh themes z zsh-syntax-highlighting zsh-autosuggestions command-not-found)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -70,11 +70,11 @@ source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='nvim'
+else
+  export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -101,7 +101,8 @@ alias l.='exa -a | egrep "^\."'
 # personal aliases
 alias zshconfig="nvim $HOME/.zshrc"
 alias ohmyzsh="nvim $HOME/.oh-my-zsh"
-alias nvimrc="cd $HOME/.config/nvim; git pull; nvim ."
+alias nvimconf="cd $HOME/.config/nvim; git pull; nvim ."
+alias ripgrep="echo 'Use rg instead of grep'"
 alias zj="zellij"
 alias vim="nvim"
 alias vi="nvim"
@@ -130,11 +131,31 @@ alias cs361="cd $HOME/odu/spr24/cs361"
 alias cs390="cd $HOME/odu/spr24/cs390"
 alias cs417="cd $HOME/odu/spr24/cs417"
 
-alias jflap="java -jar ~/applications/JFLAP7.1.jar"
+alias jflap="java -jar ~/Applications/JFLAP7.1.jar"
+
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true'
 
 
 # Created by `pipx` on 2024-01-15 00:57:33
 export PATH="$PATH:/home/neff/.local/bin"
 
+# intellij
+export PATH="$PATH:/home/neff/Applications/idea-IU-242.20224.419/bin"
+
 #Star Ship
 eval "$(starship init zsh)"
+
+[ -f "/home/neff/.ghcup/env" ] && . "/home/neff/.ghcup/env" # ghcup-env
+export PATH="$PATH:/home/neff/.ghcup/bin"
+
+# pnpm
+export PNPM_HOME="/home/neff/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# PETSc
+export PATH="$PATH:~/Applications/petsc/lib/petsc/bin"
+

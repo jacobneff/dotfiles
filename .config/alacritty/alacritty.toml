@@ -3,13 +3,13 @@ normal = { family = "JetBrainsMono Nerd Font Propo", style = "Medium" }
 bold = { family = "JetBrainsMono Nerd Font Propo", style = "Bold" }
 italic = { family = "JetBrainsMono Nerd Font Propo", style = "Italic" }
 bold_italic = { family = "JetBrainsMono Nerd Font Propo", style = "Bold Italic" }
-size = 14.5
+size = 15.5
 
 [scrolling]
 history = 50000
 
 [window]
-opacity = 0.85
+opacity = 0.75
 dynamic_padding = true
 blur = true
 
